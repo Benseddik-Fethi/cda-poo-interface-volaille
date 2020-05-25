@@ -37,4 +37,9 @@ public class Poulet extends VolailleAbattable {
 	public float getPrixAuKilo() {
 		return prixKg;
 	}
+
+	@Override
+	public float getPoidsAbattage() {	//rajout méthode getpoidsabattable
+		return poidsDAbattage;
+	}
 }

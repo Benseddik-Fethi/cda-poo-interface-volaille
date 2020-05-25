@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.cda.model.abat.Canard;
+import com.cda.model.abat.IAbattable;
 import com.cda.model.abat.Poulet;
 import com.cda.model.abat.VolailleAbattable;
 import com.cda.model.nabat.Paon;
@@ -116,7 +117,8 @@ public final class Ferme {
 		VolailleAbattable vVolailleAVendre = null;
 		if (this.volaillesMap.containsKey(vIdVolailleAVendre)) {
 			Volaille vVolailleAVendreTmp = this.volaillesMap.get(vIdVolailleAVendre);
-			if (vVolailleAVendreTmp instanceof VolailleAbattable) {
+			if (vVolailleAVendreTmp instanceof VolailleAbattable && 
+					((IAbattable) vVolailleAVendreTmp).getPoidsAbattage() <= ((VolailleAbattable) vVolailleAVendreTmp).getPoids()) {	//rajout condition pour tester si la volaille a le poids requis
 				boolean vSuppressionReussie = false;
 				if (vTypeVolaille == 0 && this.canards.contains(vVolailleAVendreTmp)) {
 					vSuppressionReussie = this.canards.remove(vVolailleAVendreTmp);

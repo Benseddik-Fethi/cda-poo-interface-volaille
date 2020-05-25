@@ -20,9 +20,13 @@ public class Canard extends VolailleAbattable {
 		prixKg = pNouveauPrixKg;
 	}
 	
-	public static float getPoidsDAbattage() {
+	public static float getPoidsDAbattage() {	//rajout méthode getpoidsabattable
 		return poidsDAbattage;
 	}
+	
+	public float getPoidsAbattage() {
+		return poidsDAbattage;
+	}	
 	
 	public static void modifierPoidsDAbattage(float pNouveauPoidsDAbattage) {
 		poidsDAbattage = pNouveauPoidsDAbattage;
