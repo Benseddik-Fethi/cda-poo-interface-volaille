@@ -4,8 +4,8 @@ public class Canard extends VolailleAbattable {
 	public static final int NB_MAX = 4;
 	
 	private static int cmpt;
-	private static float prixKg;
-	private static float poidsDAbattage = 4;
+	private static float prixKg = 3;	//initialisation prix au kg
+	private static float poidsDAbattage = 4;	//initialisation poids abattage
 	
 	@Override
 	public String idSuivant() {

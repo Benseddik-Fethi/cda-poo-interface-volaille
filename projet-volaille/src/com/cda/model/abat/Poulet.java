@@ -4,8 +4,8 @@ public class Poulet extends VolailleAbattable {
 	public static final int NB_MAX = 5;
 	
 	private static int cmpt;
-	private static float prixKg;
-	private static float poidsDAbattage = 3;
+	private static float prixKg = 2;	//initialisation prix au kg
+	private static float poidsDAbattage = 3;	//initialisation poids abattage
 	
 	@Override
 	public String idSuivant() {

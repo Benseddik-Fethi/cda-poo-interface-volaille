@@ -132,6 +132,8 @@ public final class Ferme {
 					vVolailleAVendre = (VolailleAbattable)vVolailleAVendreTmp;
 				}
 			}
+		} else {
+			System.out.println("Aucune volaille à vendre.");
 		}
 		return vVolailleAVendre;
 	}
