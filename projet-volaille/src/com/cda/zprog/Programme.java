@@ -19,6 +19,7 @@ public class Programme {
 		ajouterAction(actions,LesActions.MODIFIER_POIDS_ABATTAGE);
 		ajouterAction(actions,LesActions.MODIFIER_PRIX_DU_JOUR);
 		ajouterAction(actions,LesActions.VENDRE_VOLAILLE);
+		ajouterAction(actions,LesActions.RENDRE_VOLAILLE);		//rajout du menu 7 pour ajouter une volaille à garder
 		
 		boolean vContinuer;
 		int vActionSaisie;

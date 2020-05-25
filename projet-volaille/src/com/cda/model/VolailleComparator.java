@@ -30,9 +30,8 @@ public class VolailleComparator implements Comparator<Volaille> {
 				if(vResultat == 0) {
 					vResultat = pVolailleA.id.compareTo(pVolailleB.id);
 				}
+				return vResultat;		//ajout du return vResultat.
 			}
-		}
-		return compare(pVolailleB,pVolailleA);
+		}		//suppression du return compare (stack overflow)
 	}
-
 }

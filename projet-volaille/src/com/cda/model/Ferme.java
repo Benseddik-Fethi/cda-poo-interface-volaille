@@ -9,6 +9,7 @@ import com.cda.model.abat.Canard;
 import com.cda.model.abat.IAbattable;
 import com.cda.model.abat.Poulet;
 import com.cda.model.abat.VolailleAbattable;
+import com.cda.model.nabat.Cygne;
 import com.cda.model.nabat.Paon;
 
 public final class Ferme {
@@ -21,6 +22,7 @@ public final class Ferme {
 	private final Set<Canard> canards;
 	private final Set<Poulet> poulets;
 	private final Set<Paon> paons;
+	private final Set<Cygne> cygnes;	//rajout attribut Set<Cygne>
 
 	private Ferme() {
 		this.volaillesMap = new HashMap<>();
@@ -28,6 +30,7 @@ public final class Ferme {
 		this.canards = new TreeSet<>();
 		this.poulets = new TreeSet<>();
 		this.paons = new TreeSet<>();
+		this.cygnes = new TreeSet<>();		//initialisation du TreeSet<Cygne>
 	}
 
 	private void ajouterVolaille(Volaille pVolaille) {
@@ -49,6 +52,11 @@ public final class Ferme {
 		this.paons.add(pPaon);
 		this.ajouterVolaille(pPaon);
 	}
+	
+	private void ajouterCygne(Cygne pCygne) {		//création méthode ajouter cygne
+		this.cygnes.add(pCygne);
+		this.ajouterVolaille(pCygne);
+	}
 
 	public Set<Volaille> getVolailles() {
 		return this.volaillesSet;
@@ -63,7 +71,9 @@ public final class Ferme {
 
 		} else if (!pEstAbattable && pTypeVolaille == 0) {
 			return new TreeSet<Volaille>(this.paons);
-
+		
+		} else if (!pEstAbattable && pTypeVolaille == 1) {
+			return new TreeSet<Volaille>(this.cygnes);
 		}
 		return new TreeSet<>();
 	}//test
@@ -81,8 +91,11 @@ public final class Ferme {
 
 		} else if (!pEstAbattables && vTypeVolaille == 0 && paons.size() != Paon.NB_MAX) {
 			return true;
+			
+		} else if (!pEstAbattables && vTypeVolaille == 1 && cygnes.size() !=Cygne.NB_MAX) {		//rajout de test pour le type cygne
+			return true;
 		}
-
+		
 		return false;
 	}
 	
@@ -97,7 +110,6 @@ public final class Ferme {
 			vNouvelleVolaille = new Poulet();
 			vNouvelleVolaille.setPoids(pPoids);
 			LA_FERME.ajouterPoulet((Poulet) vNouvelleVolaille);
-
 		}
 
 		return vNouvelleVolaille;
@@ -108,6 +120,9 @@ public final class Ferme {
 		if (vTypeVolaille == 0 && paons.size() != Paon.NB_MAX) {
 			vNouvelleVolaille = new Paon();
 			LA_FERME.ajouterPaon((Paon) vNouvelleVolaille);
+		} else if (vTypeVolaille == 1 && cygnes.size() != Cygne.NB_MAX) {		//rajout du test pour identifier le type de volaille à garder
+			vNouvelleVolaille = new Cygne();									//à savoir le cygne.
+			LA_FERME.ajouterCygne((Cygne) vNouvelleVolaille);
 		}
 
 		return vNouvelleVolaille;

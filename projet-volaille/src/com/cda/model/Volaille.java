@@ -17,7 +17,7 @@ public abstract class Volaille implements IGeneratriceDId, Comparable<Volaille> 
 
 	@Override
 	public String toString() {
-		return typeNom + " : id=" + id;
+		return String.format("%8s, id=%7s",typeNom , id);		//formattage toString
 	}
 	
 	@Override
