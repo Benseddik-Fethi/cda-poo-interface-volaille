@@ -65,7 +65,7 @@ public final class Ferme {
 
 		}
 		return new TreeSet<>();
-	}
+	}//test
 
 	public int getNbVolailles() {
 		return this.volaillesSet.size();
