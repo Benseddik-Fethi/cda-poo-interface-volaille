@@ -5,7 +5,7 @@ public class Poulet extends VolailleAbattable {
 	
 	private static int cmpt;
 	private static float prixKg;
-	private static float poidsDAbattage;
+	private static float poidsDAbattage = 3;
 	
 	@Override
 	public String idSuivant() {
