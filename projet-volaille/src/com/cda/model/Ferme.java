@@ -11,6 +11,7 @@ import com.cda.model.abat.Poulet;
 import com.cda.model.abat.VolailleAbattable;
 import com.cda.model.nabat.Cygne;
 import com.cda.model.nabat.Paon;
+import com.cda.model.nabat.VolailleAGarder;
 
 public final class Ferme {
 	public static final Ferme LA_FERME = new Ferme();
@@ -151,5 +152,29 @@ public final class Ferme {
 			System.out.println("Aucune volaille à vendre.");
 		}
 		return vVolailleAVendre;
+	}
+	
+	public VolailleAGarder rendreVolaille(int vTypeVolaille, String vIdVolailleARendre) {
+		VolailleAGarder vVolailleARendre = null;
+		if (this.volaillesMap.containsKey(vIdVolailleARendre)) {
+			Volaille vVolailleARendreTmp = this.volaillesMap.get(vIdVolailleARendre);
+			if (vVolailleARendreTmp instanceof VolailleAGarder){	//rajout condition pour tester si la volaille a le poids requis
+				boolean vSuppressionReussie = false;
+				if (vTypeVolaille == 0 && this.paons.contains(vVolailleARendreTmp)) {
+					vSuppressionReussie = this.paons.remove(vVolailleARendreTmp);
+
+				} else if (vTypeVolaille == 1 && this.cygnes.contains(vVolailleARendreTmp)) {
+					vSuppressionReussie = this.cygnes.remove(vVolailleARendreTmp);
+				}
+				if(vSuppressionReussie) {
+					this.volaillesMap.remove(vIdVolailleARendre);
+					this.volaillesSet.remove(vVolailleARendreTmp);
+					vVolailleARendre = (VolailleAGarder)vVolailleARendreTmp;
+				}
+			}
+		} else {
+			System.out.println("Aucune volaille à rendre.");
+		}
+		return vVolailleARendre;
 	}
 }

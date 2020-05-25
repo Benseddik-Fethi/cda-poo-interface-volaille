@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.cda.model.Volaille;
 import com.cda.model.abat.VolailleAbattable;
+import com.cda.model.nabat.VolailleAGarder;
 
 final class RendreVolaille extends Action {
 
@@ -20,9 +21,8 @@ final class RendreVolaille extends Action {
 	@Override
 	public boolean executer() {
 		IHM_INS.afficher("choisissez un type de volaille :");
-		IHM_INS.afficher("\t0)- Cygne");	// cygne
-		IHM_INS.afficher("\t1)- Paon");		// paon
-		
+		IHM_INS.afficher("\t0)- Paon");	// paon	
+		IHM_INS.afficher("\t1)- Cygne");// cygne
 		int vTypeVolaille = IHM_INS.lireEntier();
 		
 		IHM_INS.afficher("saisissez l'id de la volaille à vendre parmis :");
@@ -31,12 +31,12 @@ final class RendreVolaille extends Action {
 			IHM_INS.afficher(vVolaille.toString());
 		}
 		
-		String vIdVolailleAVendre = IHM_INS.lireMot();
-		VolailleAbattable vVolailleVendue = LA_FERME.vendreVolaille(vTypeVolaille,vIdVolailleAVendre);
-		if(vVolailleVendue == null) {
-			IHM_INS.afficher("> erreur lors de la vente");
+		String vIdVolailleARendre = IHM_INS.lireMot();
+		VolailleAGarder vVolailleRendue = LA_FERME.rendreVolaille(vTypeVolaille,vIdVolailleARendre);
+		if(vVolailleRendue == null) {
+			IHM_INS.afficher("> erreur lors de la restitution");
 		} else {
-			IHM_INS.afficher("> voici la volaille vendue "+vVolailleVendue);
+			IHM_INS.afficher("> voici la volaille rendue "+vVolailleRendue);
 		}
 		
 		return Boolean.TRUE;
