@@ -154,11 +154,11 @@ public final class Ferme {
 		return vVolailleAVendre;
 	}
 	
-	public VolailleAGarder rendreVolaille(int vTypeVolaille, String vIdVolailleARendre) {
+	public VolailleAGarder rendreVolaille(int vTypeVolaille, String vIdVolailleARendre) {// ajout methode RendreVolaille
 		VolailleAGarder vVolailleARendre = null;
 		if (this.volaillesMap.containsKey(vIdVolailleARendre)) {
 			Volaille vVolailleARendreTmp = this.volaillesMap.get(vIdVolailleARendre);
-			if (vVolailleARendreTmp instanceof VolailleAGarder){	//rajout condition pour tester si la volaille a le poids requis
+			if (vVolailleARendreTmp instanceof VolailleAGarder){
 				boolean vSuppressionReussie = false;
 				if (vTypeVolaille == 0 && this.paons.contains(vVolailleARendreTmp)) {
 					vSuppressionReussie = this.paons.remove(vVolailleARendreTmp);

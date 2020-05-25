@@ -32,7 +32,7 @@ final class RendreVolaille extends Action {
 		}
 		
 		String vIdVolailleARendre = IHM_INS.lireMot();
-		VolailleAGarder vVolailleRendue = LA_FERME.rendreVolaille(vTypeVolaille,vIdVolailleARendre);
+		VolailleAGarder vVolailleRendue = LA_FERME.rendreVolaille(vTypeVolaille,vIdVolailleARendre);// Modification appel methode RendreVolaille
 		if(vVolailleRendue == null) {
 			IHM_INS.afficher("> erreur lors de la restitution");
 		} else {
