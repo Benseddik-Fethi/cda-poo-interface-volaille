@@ -3,9 +3,6 @@ package com.cda.menu.action;
 import static com.cda.model.Ferme.LA_FERME;
 import static com.cda.tools.Ihm.IHM_INS;
 
-import java.util.Set;
-
-import com.cda.model.Volaille;
 
 final class AfficherPrix extends Action {		//ajout classe afficher prix
 

@@ -2,11 +2,8 @@ package com.cda.menu.action;
 
 import static com.cda.model.Ferme.LA_FERME;
 import static com.cda.tools.Ihm.IHM_INS;
-
 import java.util.Set;
-
 import com.cda.model.Volaille;
-import com.cda.model.abat.VolailleAbattable;
 import com.cda.model.nabat.VolailleAGarder;
 
 final class RendreVolaille extends Action {

@@ -1,8 +1,6 @@
 package com.cda.model.nabat;
 
-import java.text.DateFormat;
 import java.time.LocalDateTime;
-
 import com.cda.model.Volaille;
 import com.cda.tools.Utils;
 
