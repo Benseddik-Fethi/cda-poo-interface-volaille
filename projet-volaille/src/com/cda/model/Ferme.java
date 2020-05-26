@@ -154,7 +154,7 @@ public final class Ferme {
 		return vVolailleAVendre;
 	}
 	
-	public VolailleAGarder rendreVolaille(int vTypeVolaille, String vIdVolailleARendre) {// ajout methode RendreVolaille
+	public VolailleAGarder rendreVolaille(int vTypeVolaille, String vIdVolailleARendre) {	// ajout methode RendreVolaille
 		VolailleAGarder vVolailleARendre = null;
 		if (this.volaillesMap.containsKey(vIdVolailleARendre)) {
 			Volaille vVolailleARendreTmp = this.volaillesMap.get(vIdVolailleARendre);
@@ -176,5 +176,14 @@ public final class Ferme {
 			System.out.println("Aucune volaille à rendre.");
 		}
 		return vVolailleARendre;
+	}
+	
+	public float afficherPrixTotalVolailles() {		//ajout méthode afficher prix
+		return (float)this.volaillesSet.stream()
+			.filter(x->x instanceof IAbattable)
+			.filter(x->((IAbattable)x).getPoids() >= ((IAbattable) x).getPoidsAbattage())
+			.map(x->(IAbattable)x)
+			.mapToDouble(IAbattable::calculerPrix)
+			.sum();
 	}
 }
